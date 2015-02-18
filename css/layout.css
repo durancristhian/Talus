@@ -1,0 +1,14 @@
+html, button, input, select, textarea, .pure-g [class *= "pure-u"] {
+	font-family: "open-sans", sans-serif;
+	letter-spacing: 1px;
+}
+
+body {
+	background: #fff;
+	color: #666;
+	font-size: 18px;
+}
+
+.align-center {
+	text-align: center;
+}

@@ -1,0 +1,35 @@
+.current-weather {
+	margin: 50px auto;
+	width: 500px;
+}
+
+.current-weather__image {
+	height: 125px;
+	margin: 0 auto;
+	width: 125px;
+}
+
+.current-weather__image.sunny {
+	background: url(../img/weather/tick_weather_032.png);
+}
+
+.current-weather__place {
+	display: block;
+	font-size: 1.5em;
+	font-weight: bold;
+	text-align: center;
+}
+
+.current-weather__row {
+	margin-bottom: 10px;
+}
+
+.current-weather__temp {
+	display: block;
+	font-size: 3em;
+	padding: 9px 0 10px;
+}
+
+.current-weather__wrapper {
+	margin: 25px 0;
+}
