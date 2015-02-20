@@ -1,0 +1,14 @@
+{
+	"name": "talus",
+	"description": "talus is a chrome extension created by @arigers and @durancristhian",
+	"version": "0.1",
+	"incognito": "split",
+	"chrome_url_overrides": {
+		"newtab": "talus.html"
+	},
+	"manifest_version": 2,
+	"icons": { "16": "img/16.png", "128": "img/128.png" },
+	"permissions": [
+		"http://api.openweathermap.org/"
+	]
+}

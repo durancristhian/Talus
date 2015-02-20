@@ -22,6 +22,7 @@ function GetData () {
 
 function UpdateUI (data) {
 
+	// Review this values
 	$(".current-weather__place-city").text(data.name);
 	$(".current-weather__place-country").text(data.sys.country);
 	$(".current-weather__temp-value").text(data.main.temp.toPrecision(2));
@@ -30,5 +31,6 @@ function UpdateUI (data) {
 	$(".current-weather__humidity").text(data.main.humidity);
 	$(".current-weather__wind").text(data.wind.speed);
 
+	// Init animation of .current-weather box
 	new WOW().init();
 }
