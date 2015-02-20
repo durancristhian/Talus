@@ -3,24 +3,22 @@
 	background: #fff;
 	border: 1px solid #ddd;
 	margin: 0 auto;
-	padding: 15px 0;
+	visibility: hidden;
 	width: 350px;
 }
 
 /* Title */
 .current-weather__place {
+	border-bottom: 1px solid #ddd;
 	display: block;
 	font-size: 1.5em;
 	font-weight: bold;
-	padding: 0 15px;
+	padding: 15px;
 	text-align: center;
 }
 
 /* Image + Temp value */
 .current-weather__temp-wrapper {
-	border-bottom: 1px solid #ddd;
-	border-top: 1px solid #ddd;
-	margin: 10px 0;
 	padding: 25px 0;
 }
 
@@ -31,7 +29,7 @@
 }
 
 .current-weather__temp-wrapper .current-weather__image.sunny {
-	background: url(../img/weather/tick_weather_032.png);
+	background: url(../../img/weather/tick_weather_032.png);
 }
 
 .current-weather__temp-wrapper .current-weather__temp {
@@ -43,5 +41,6 @@
 
 /* Weather conditions */
 .current-weather__conditions-wrapper {
-	padding: 0 15px;
+	border-top: 1px solid #ddd;
+	padding: 15px;
 }
