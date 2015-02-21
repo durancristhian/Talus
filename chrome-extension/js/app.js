@@ -26,10 +26,9 @@ function UpdateUI (data) {
 	$(".current-weather__place-city").text(data.name);
 	$(".current-weather__place-country").text(data.sys.country);
 	$(".current-weather__temp-value").text(data.main.temp.toPrecision(2));
-	$(".current-weather__temp-min-value").text(data.main.temp_min);
-	$(".current-weather__temp-max-value").text(data.main.temp_max);
-	$(".current-weather__humidity").text(data.main.humidity);
-	$(".current-weather__wind").text(data.wind.speed);
+	$(".current-weather__temp-min-value").text(data.main.temp_min.toPrecision(2));
+	$(".current-weather__temp-max-value").text(data.main.temp_max.toPrecision(2));
+	$(".current-weather__update-time-value").text(moment().fromNow());
 
 	// Init animation of .current-weather box
 	new WOW().init();
