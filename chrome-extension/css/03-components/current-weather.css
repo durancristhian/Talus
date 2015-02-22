@@ -1,63 +1,35 @@
 .current-weather {
-	background: #fff;
-	border: 1px solid #ddd;
-	margin: 0 auto;
+	display: inline-block;
+	font-size: 20px;
+	margin-right: 50px;
+	vertical-align: middle;
 	visibility: hidden;
-	width: 325px;
+	width: 75px;
 }
 
-.current-weather__place {
-	font-size: 1.5em;
-	font-weight: bold;
-	text-align: center;
+.current-weather.main {
+	font-size: 30px;
+	width: 150px;
+}
+
+.current-weather:last-child {
+	margin-right: 0;
+}
+
+.current-weather__icon {
+	font-size: 4em;
 }
 
 .current-weather__temp {
-	height: 100px;
-	text-align: center;
-}
-
-.current-weather__temp span {
-	font-size: 65px;
-	line-height: 100px;
-}
-
-.current-weather__temp-max, .current-weather__temp-min {
-	font-size: 1.75em;
-	text-align: center;
-}
-
-.current-weather__update-time {
-	color: #bdc3c7;
-	text-align: center;
+	font-size: 1.5em;
+	padding-top: 25px;
 }
 
 .current-weather__wrapper {
-	padding: 15px;
-}
-
-.current-weather__wrapper-with-border-bottom {
-	border-bottom: 1px solid #ddd;
-	padding: 15px;
-}
-
-.current-weather .circle {
-	margin-left: -.1em;
-}
-
-.current-weather .icon {
-	color: #bdc3c7;
-	display: inline-block;
-	margin-right: 5px;
-	vertical-align: middle;
+	font-size: 0;
+	text-align: center;
 }
 
 .current-weather .weather-icon-sun {
 	color: #f1c40f;
-}
-
-.current-weather [class^="weather-icon-"] {
-	display: block;
-	font-size: 100px;
-	text-align: center;
 }
