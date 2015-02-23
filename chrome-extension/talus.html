@@ -4,43 +4,58 @@
 	<link rel="icon" type="image/png" href="img/16.png" />
 	<meta charset="UTF-8">
 	<title>talus is a chrome extension created by @arigers and @durancristhian</title>
+	<link rel="stylesheet" href="css/01-vendor/normalize.css">
 	<link rel="stylesheet" href="css/01-vendor/animate.css">
-	<link rel="stylesheet" href="css/01-vendor/meteocons.css">
 	<link rel="stylesheet" href="css/02-base/fonts.css">
 	<link rel="stylesheet" href="css/02-base/layout.css">
-	<link rel="stylesheet" href="css/03-components/current-weather.css">
+	<link rel="stylesheet" href="css/03-app/app.css">
 </head>
 <body>
-	<div class="current-weather__wrapper">
-		<div class="current-weather main wow fadeInDown" data-wow-duration=".5s" data-wow-delay="0">
-			<div class="current-weather__icon weather-icon-sun"></div>
-			<div class="current-weather__temp"></div>
+
+	<div class="app">
+		<div class="place"></div>
+		<div class="boxes-container">
+			<div class="box today" data-wow-duration=".25s" data-wow-delay="0">
+				<div class="box__title">Hoy</div>
+				<div class="box__image"></div>
+				<div class="box__content"></div>
+			</div>
 		</div>
-		<div class="current-weather wow fadeInDown" data-wow-duration=".5s" data-wow-delay=".25s">
-			<div class="current-weather__icon weather-icon-sunrise"></div>
-			<div class="current-weather__temp"></div>
-		</div>
-		<div class="current-weather wow fadeInDown" data-wow-duration=".5s" data-wow-delay=".5s">
-			<div class="current-weather__icon weather-icon-windy"></div>
-			<div class="current-weather__temp"></div>
-		</div>
-		<div class="current-weather wow fadeInDown" data-wow-duration=".5s" data-wow-delay=".75s">
-			<div class="current-weather__icon weather-icon-weather"></div>
-			<div class="current-weather__temp"></div>
-		</div>
-		<div class="current-weather wow fadeInDown" data-wow-duration=".5s" data-wow-delay="1s">
-			<div class="current-weather__icon weather-icon-lightning"></div>
-			<div class="current-weather__temp"></div>
-		</div>
-		<div class="current-weather wow fadeInDown" data-wow-duration=".5s" data-wow-delay="1.25s">
-			<div class="current-weather__icon weather-icon-rainy2"></div>
-			<div class="current-weather__temp"></div>
-		</div>
-		<div class="current-weather wow fadeInDown" data-wow-duration=".5s" data-wow-delay="1.5s">
-			<div class="current-weather__icon weather-icon-weather4"></div>
-			<div class="current-weather__temp"></div>
+		<div class="boxes-container">
+			<div class="box" data-wow-duration=".25s" data-wow-delay=".15s">
+				<div class="box__title"></div>
+				<div class="box__image"></div>
+				<div class="box__content"></div>
+			</div>
+			<div class="box" data-wow-duration=".25s" data-wow-delay=".4s">
+				<div class="box__title"></div>
+				<div class="box__image"></div>
+				<div class="box__content"></div>
+			</div>
+			<div class="box" data-wow-duration=".25s" data-wow-delay=".65s">
+				<div class="box__title"></div>
+				<div class="box__image"></div>
+				<div class="box__content"></div>
+			</div>
+			<div class="box" data-wow-duration=".25s" data-wow-delay=".9s">
+				<div class="box__title"></div>
+				<div class="box__image"></div>
+				<div class="box__content"></div>
+			</div>
+			<div class="box" data-wow-duration=".25s" data-wow-delay="1.15s">
+				<div class="box__title"></div>
+				<div class="box__image"></div>
+				<div class="box__content"></div>
+			</div>
+			<div class="box" data-wow-duration=".25s" data-wow-delay="1.4s">
+				<div class="box__title"></div>
+				<div class="box__image"></div>
+				<div class="box__content"></div>
+			</div>
 		</div>
 	</div>
+
+	<div class="error">Ha ocurrido un error, asegúrate de tener conexión a internet.</div>
 
 	<script src="js/vendor/jquery-2.1.3.min.js"></script>
 	<script src="js/vendor/wow.min.js"></script>
