@@ -1,4 +1,8 @@
-.box {
+.app {
+	display: none;
+}
+
+.app .box {
 	display: inline-block;
 	font-size: 20px;
 	margin-right: 50px;
@@ -6,34 +10,45 @@
 	visibility: hidden;
 }
 
-.box:last-child {
+.app .box:last-child {
 	margin-right: 0;
 }
 
-.box.today {
-	margin-bottom: 100px;
+.app .box.today {
+	margin-bottom: 80px;
 }
 
-.box * {
+.app .box * {
 	line-height: 1em;
 }
 
-.boxes-container {
+.app .boxes-container {
 	font-size: 0;
 	text-align: center;
 }
 
-.box__content {
+.app .box__content {
 	font-size: 1.5em;
 	font-weight: bold;
 }
 
-.box__image img {
+.app .box__image img {
 	display: block;
 	margin: 5px auto;
 }
 
-.place {
+.app .links {
+	margin-top: 80px;
+	text-align: center;
+	visibility: hidden;
+}
+
+.app .links a {
+	color: #aaa;
+	font-size: .75em;
+}
+
+.app .place {
 	font-size: 1.5em;
 	font-weight: bold;
 	margin: 50px 0 75px;

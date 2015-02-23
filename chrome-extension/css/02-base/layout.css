@@ -14,8 +14,6 @@ body {
 	font-size: 20px;
 }
 
-.error {
-	display: none;
-	margin-top: 100px;
-	text-align: center;
+a {
+	text-decoration: none;
 }

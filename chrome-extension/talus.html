@@ -8,9 +8,39 @@
 	<link rel="stylesheet" href="css/01-vendor/animate.css">
 	<link rel="stylesheet" href="css/02-base/fonts.css">
 	<link rel="stylesheet" href="css/02-base/layout.css">
+	<link rel="stylesheet" href="css/03-app/configuration.css">
 	<link rel="stylesheet" href="css/03-app/app.css">
+	<link rel="stylesheet" href="css/03-app/error.css">
 </head>
 <body>
+
+	<div class="configuration">
+		<h1>talus is a chrome extension created by <a href="https://twitter.com/arigers" target="_blank">@arigers</a> and <a href="https://twitter.com/DuranCristhian" target="_blank">@durancristhian</a></h1>
+		<p>
+			1. Visita
+			<a href="http://openweathermap.org/find?q=" target="_blank">éste link</a>
+		</p>
+		<p>
+			2. Escribe el nombre de tu ciudad. Clickea en la opción más adecuada que encuentres.
+		</p>
+		<p>
+			3. Copia el código numérico de la url.
+		</p>
+		<p class="example">
+			La siguiente url pertenece a <strong>Buenos Aires</strong>: http://openweathermap.org/city/3435910
+			<br>
+			El código es <strong>3435910</strong>
+		</p>
+		<p>
+			2. Escríbe el código 
+			<input type="text" placeholder="aquí">
+		</p>
+		<p>
+			3. Pulsa
+			<button>éste botón</button>
+			para indicar que terminaste
+		</p>
+	</div>
 
 	<div class="app">
 		<div class="place"></div>
@@ -53,9 +83,14 @@
 				<div class="box__content"></div>
 			</div>
 		</div>
+		<div class="links" data-wow-duration=".25s" data-wow-delay="2s">
+			<a href="#" id="delete-city-code">Delete city code</a>
+		</div>
 	</div>
 
-	<div class="error">Ha ocurrido un error, asegúrate de tener conexión a internet.</div>
+	<div class="error">
+		Ha ocurrido un error, asegúrate de tener conexión a internet.
+	</div>
 
 	<script src="js/vendor/jquery-2.1.3.min.js"></script>
 	<script src="js/vendor/wow.min.js"></script>

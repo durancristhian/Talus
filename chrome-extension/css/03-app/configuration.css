@@ -1,0 +1,19 @@
+.configuration {
+	display: none;
+	margin: 50px 0 0 100px;
+}
+
+.configuration a {
+	color: #3498db;
+}
+
+.configuration input {
+	border: 0;
+	border-bottom: 1px solid #ccc;
+	outline: none;
+	text-align: center;
+}
+
+.configuration .example {
+	padding-left: 100px;
+}
