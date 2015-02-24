@@ -80,14 +80,18 @@
 	function UpdateForecastBoxes (data) {
 
 		var forecastBoxes = $(".box:not(.today)");
+		var dayIndex = new Date().getDay();
 
 		$.each(data.list, function (index, value) {
 
 			var box = forecastBoxes[index];
 
-			$(box).find(".box__title").text(weekday[index + 1]);
+			$(box).find(".box__title").text(weekday[dayIndex]);
 			$(box).find(".box__image").append("<img src='http://openweathermap.org/img/w/" + value.weather[0].icon + ".png' alt='weather icon'>");
 			$(box).find(".box__content").text(value.temp.day.toPrecision(2) + "°");
+
+			if(dayIndex === 6) dayIndex = 0;
+			else dayIndex++;
 		});
 	}
 
