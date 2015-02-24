@@ -12,6 +12,7 @@
 }
 
 .configuration input {
+	background: none;
 	border: 0;
 	border-bottom: 1px solid #ccc;
 	outline: none;
