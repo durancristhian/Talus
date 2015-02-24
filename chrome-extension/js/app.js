@@ -1,121 +1,128 @@
-var forecastsWeatherUrl = "";
-var id;
-var todaysWeatherUrl = "";
-var weekday = new Array(7);
-weekday[0]= "Lunes";
-weekday[1]= "Martes";
-weekday[2]= "Miércoles";
-weekday[3]= "Jueves";
-weekday[4]= "Viernes";
-weekday[5]= "Sábado";
-weekday[6]= "Domingo";
+(function () {
 
-$(document).on("ready", Init);
+	// Variables
+	var cityId = localStorage.getItem("city");
+	var weekday = new Array(7);
+	weekday[0]= "Lunes";
+	weekday[1]= "Martes";
+	weekday[2]= "Miércoles";
+	weekday[3]= "Jueves";
+	weekday[4]= "Viernes";
+	weekday[5]= "Sábado";
+	weekday[6]= "Domingo";
 
-function Init () {
+	$(document).on("ready", Init);
 
-	console.log("Hi developers (:");
+	function Init () {
 
-	id = localStorage.getItem("city");
+		console.log("Hi developers (:");
 
-	if(id) {
-
-		InitApp();
+		if(!cityId) ShowConfiguration();
+		else InitApp();
 	}
-	else {
+
+	function ShowConfiguration () {
+
+		if(cityId) {
+
+			$("#current-city-id").text(cityId);
+
+			$(".configuration .with-city-id").show();
+			$(".configuration .without-city-id").hide();
+		} else {
+
+			$(".configuration .with-city-id").hide();
+			$(".configuration .without-city-id").show();
+		}
+
+		$(".app").hide();
+		$(".configuration").fadeIn("slow");
+	}
+
+	function InitApp () {
+
+		$(".app").show();
+		GetData();
+	}
+
+	function GetData () {
+
+		var forecastsWeatherUrl = "http://api.openweathermap.org/data/2.5/forecast/daily?units=metric&lang=es&cnt=6&id=" + cityId;
+		var todaysWeatherUrl = "http://api.openweathermap.org/data/2.5/weather?units=metric&lang=es&id=" + cityId;
+
+		$.getJSON(todaysWeatherUrl)
+			.done(function (mainInfo) {
+
+				UpdateMainInfo(mainInfo);
+
+				$.getJSON(forecastsWeatherUrl)
+					.done(function (forecastWeatherInfo) {
+
+						UpdateForecastBoxes(forecastWeatherInfo);
+
+						new WOW().init();
+					})
+					.fail(ShowError);
+			})
+			.fail(ShowError);
+	}
+
+	function UpdateMainInfo (data) {
+
+		var place = $(".place");
+		place.text(data.name + ", " + data.sys.country);
+
+		var today = $(".box.today");
+		today.find(".box__image").append("<img src='http://openweathermap.org/img/w/" + data.weather[0].icon + ".png' alt='weather icon'>");
+		today.find(".box__content").text(data.main.temp.toPrecision(2) + "°");
+	}
+
+	function UpdateForecastBoxes (data) {
+
+		var forecastBoxes = $(".box:not(.today)");
+
+		$.each(data.list, function (index, value) {
+
+			var box = forecastBoxes[index];
+
+			$(box).find(".box__title").text(weekday[index + 1]);
+			$(box).find(".box__image").append("<img src='http://openweathermap.org/img/w/" + value.weather[0].icon + ".png' alt='weather icon'>");
+			$(box).find(".box__content").text(value.temp.day.toPrecision(2) + "°");
+		});
+	}
+
+	// Auxiliar functions
+	function ShowError () {
+
+		$(".app").hide();
+		$(".error").fadeIn("slow");
+	}
+
+	function Reload () {
+
+		window.location.reload();
+	}
+
+	// Events
+	$("#show-configuration").on("click", function () {
 
 		ShowConfiguration();
-	}
-}
+	});
 
-function ShowConfiguration () {
+	$(".configuration button").on("click", function () {
 
-	$(".configuration").fadeIn("slow");
-	$(".configuration button").on("click", UpdateCityId);
-}
+		var inputValue = $(".configuration input").val();
 
-function UpdateCityId () {
+		if(inputValue) {
 
-	var inputValue = $(".configuration input").val();
+			localStorage.setItem("city", inputValue);
+			Reload();
+		}
+	});
 
-	if(inputValue) {
-
-		localStorage.setItem("city", inputValue);
-		Reload();
-	}
-}
-
-function InitApp () {
-
-	$(".app").show();
-	GetData();
-	$("#delete-city-code").on("click", DeleteCityCode);
-}
-
-function DeleteCityCode (event) {
-
-	event.preventDefault();
-
-	if(confirm("¿Desea borrar la información almacenada?")) {
+	$("#delete-current-city-id").on("click", function () {
 
 		localStorage.removeItem("city");
 		Reload();
-	}
-}
-
-function Reload () {
-
-	window.location = window.location;
-}
-
-function GetData () {
-
-	forecastsWeatherUrl = "http://api.openweathermap.org/data/2.5/forecast/daily?units=metric&lang=es&cnt=6&id=" + id;
-	todaysWeatherUrl = "http://api.openweathermap.org/data/2.5/weather?units=metric&lang=es&id=" + id;
-
-	$.getJSON(todaysWeatherUrl)
-		.done(UpdateMainInfo)
-		.fail(ShowError);
-
-	$.getJSON(forecastsWeatherUrl)
-		.done(UpdateForecastBoxes)
-		.fail(ShowError);
-}
-
-function UpdateMainInfo (data) {
-
-	$(".place").text(data.name + ", " + data.sys.country);
-
-	var today = $(".box.today");
-	today.find(".box__content").text(data.main.temp.toPrecision(2) + "°");
-	today.find(".box__image").append("<img src='http://openweathermap.org/img/w/" + data.weather[0].icon + ".png' alt='weather icon'>");
-	today.addClass("wow fadeInDown");
-
-	new WOW().init();
-}
-
-function UpdateForecastBoxes (data) {
-
-	var forecastBoxes = $(".box:not(.today)");
-
-	$.each(data.list, function (index, value) {
-
-		var box = forecastBoxes[index];
-
-		$(box).find(".box__title").text(weekday[index + 1]);
-		$(box).find(".box__image").append("<img src='http://openweathermap.org/img/w/" + value.weather[0].icon + ".png' alt='weather icon'>");
-		$(box).find(".box__content").text(value.temp.day.toPrecision(2) + "°");
-		$(box).addClass("wow fadeInDown");
 	});
-
-	$(".links").addClass("wow fadeInDown");
-
-	new WOW().init();
-}
-
-function ShowError () {
-
-	$(".app").hide();
-	$(".error").fadeIn("slow");
-	console.log("Error :(");
-}
+})();

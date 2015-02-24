@@ -1,10 +1,14 @@
 .configuration {
 	display: none;
-	margin: 50px 0 0 100px;
+	margin: 50px 10% 0;
 }
 
 .configuration a {
 	color: #3498db;
+}
+
+.configuration h1 {
+	text-align: center;
 }
 
 .configuration input {
@@ -15,5 +19,9 @@
 }
 
 .configuration .example {
-	padding-left: 100px;
+	padding-left: 50px;
+}
+
+.configuration .with-city-id, .configuration .without-city-id {
+	display: none;
 }
