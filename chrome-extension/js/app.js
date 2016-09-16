@@ -47,8 +47,8 @@
 
 	function GetData () {
 
-		var forecastsWeatherUrl = "http://api.openweathermap.org/data/2.5/forecast/daily?units=metric&lang=es&cnt=6&id=" + cityId;
-		var todaysWeatherUrl = "http://api.openweathermap.org/data/2.5/weather?units=metric&lang=es&id=" + cityId;
+		var forecastsWeatherUrl = "http://api.openweathermap.org/data/2.5/forecast/daily?units=metric&lang=es&cnt=6&APPID=a3554a67e4544dab30244e50083d4386&id=" + cityId;
+		var todaysWeatherUrl = "http://api.openweathermap.org/data/2.5/weather?units=metric&lang=es&APPID=a3554a67e4544dab30244e50083d4386&id=" + cityId;
 
 		$.getJSON(todaysWeatherUrl)
 			.done(function (mainInfo) {

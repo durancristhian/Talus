@@ -1,7 +1,7 @@
 talus
 ----------
 
-> Extensión de Chrome que muestra información del clima.
+Extensión de Chrome que muestra información del clima.
 
 Screenshot
 ----------
